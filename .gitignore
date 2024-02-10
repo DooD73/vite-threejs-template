@@ -1,32 +1,12 @@
-# Node modules
-node_modules
+# Vite
+node_modules/
+dist/
 
-# Build output
-/dist
-
-# IDE files
-.vscode
-.idea
-
-# Dependency lock files
-yarn.lock
-package-lock.json
-
-# Environment variables
-.env
-
-# Log files
-*.log
-npm-debug.log*
-
-# MacOS
-.DS_Store
-
-# Thumbnails cache files
-.thumbnails/
-
-# Windows
-Thumbs.db
-
-# Cache
-.cache/
+# IDEs and Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
