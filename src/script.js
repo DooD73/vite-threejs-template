@@ -1,8 +1,6 @@
 import './style.css';
 import Experience from './Experience/Experience';
 
-const experience = new Experience(document.querySelector('canvas.webgl'));
-
 console.log(
     `                            ,----,          
                           ,/   .\`|          
@@ -26,3 +24,5 @@ console.log(
     'color: #ffe564',
     'color: #ff7e67'
 );
+
+const experience = new Experience(document.querySelector('canvas.webgl'));
