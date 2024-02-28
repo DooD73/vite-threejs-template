@@ -4,15 +4,15 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 import EventEmitter from './EventEmitter';
 
 export default class Resources extends EventEmitter {
-    constructor(sources) {
+    constructor(assets) {
         super();
 
         // Options
-        this.sources = sources;
+        this.assets = assets;
 
         // Setup
         this.items = {};
-        this.toLoad = this.sources.length;
+        this.toLoad = this.assets.length;
         this.loaded = 0;
 
         this.setLoaders();
@@ -32,26 +32,26 @@ export default class Resources extends EventEmitter {
     }
 
     startLoading() {
-        // Load each source
-        for (const source of this.sources) {
-            if (source.type === 'gltf') {
-                this.loaders.gltfLoader.load(source.path, (file) => {
-                    this.sourceLoaded(source, file);
+        // Load each asset
+        for (const asset of this.assets) {
+            if (asset.type === 'gltf') {
+                this.loaders.gltfLoader.load(asset.path, (file) => {
+                    this.assetLoaded(asset, file);
                 });
-            } else if (source.type === 'texture') {
-                this.loaders.textureLoader.load(source.path, (file) => {
-                    this.sourceLoaded(source, file);
+            } else if (asset.type === 'texture') {
+                this.loaders.textureLoader.load(asset.path, (file) => {
+                    this.assetLoaded(asset, file);
                 });
-            } else if (source.type === 'cubeTexture') {
-                this.loaders.cubeTextureLoader.load(source.path, (file) => {
-                    this.sourceLoaded(source, file);
+            } else if (asset.type === 'cubeTexture') {
+                this.loaders.cubeTextureLoader.load(asset.path, (file) => {
+                    this.assetLoaded(asset, file);
                 });
             }
         }
     }
 
-    sourceLoaded(source, file) {
-        this.items[source.name] = file;
+    assetLoaded(asset, file) {
+        this.items[asset.name] = file;
 
         this.loaded++;
 
